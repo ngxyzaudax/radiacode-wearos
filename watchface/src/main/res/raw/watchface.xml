@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WatchFace xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:wf="http://schemas.android.com/apk/res-auto">
+
+    <Metadata>
+        <wf:Preview value="@drawable/watchface_preview" />
+        <wf:Category value="RADIATION" />
+    </Metadata>
+
+    <UserConfigurations>
+        <ColorConfiguration id="accentColor" displayName="Accent" defaultValue="#66FFAA" />
+        <ListConfiguration id="layoutStyle" displayName="Layout" defaultValue="digital">
+            <ListOption id="digital" displayName="Digital" />
+            <ListOption id="analog" displayName="Analog" />
+        </ListConfiguration>
+    </UserConfigurations>
+
+    <Scene backgroundColor="#0B1210">
+        <Arc centerX="225" centerY="225" width="430" height="430" startAngle="-160" endAngle="-160">
+            <Transform target="endAngle"
+                value="-160 + ([COMPLICATION.RANGED_VALUE_VALUE] / [COMPLICATION.RANGED_VALUE_MAX]) * 320" />
+            <WeightedStroke thickness="14"
+                colors="[COMPLICATION.RANGED_VALUE_COLORS]"
+                interpolate="[COMPLICATION.RANGED_VALUE_COLORS_INTERPOLATE]" />
+        </Arc>
+
+        <Arc centerX="225" centerY="225" width="360" height="360" startAngle="20" endAngle="20">
+            <Transform target="endAngle"
+                value="20 + ([COMPLICATION.RANGED_VALUE_VALUE] / [COMPLICATION.RANGED_VALUE_MAX]) * 200" />
+            <Stroke color="#7AD4FF" thickness="8" />
+        </Arc>
+
+        <Arc centerX="225" centerY="225" width="300" height="300" startAngle="200" endAngle="200">
+            <WeightedStroke thickness="6"
+                colors="[COMPLICATION.WEIGHTED_ELEMENTS_COLORS]"
+                weights="[COMPLICATION.WEIGHTED_ELEMENTS_WEIGHTS]"
+                discreteGap="2" />
+        </Arc>
+
+        <PartText x="112" y="210" width="226" height="60">
+            <Template><![CDATA[[COMPLICATION.SHORT_TEXT]]]></Template>
+            <Font family="SANS_SERIF" size="28" weight="BOLD" color="[CONFIGURATION.accentColor]" />
+        </PartText>
+
+        <ComplicationSlot
+            slotId="0"
+            x="112"
+            y="300"
+            width="226"
+            height="60"
+            supportedTypes="RANGED_VALUE,SHORT_TEXT"
+            defaultProviderComponent="com.ngxyzaudax.radiacode/.complication.DoseRateComplicationService" />
+
+        <ComplicationSlot
+            slotId="1"
+            x="112"
+            y="360"
+            width="226"
+            height="60"
+            supportedTypes="RANGED_VALUE,SHORT_TEXT"
+            defaultProviderComponent="com.ngxyzaudax.radiacode/.complication.CountRateComplicationService" />
+
+        <ComplicationSlot
+            slotId="2"
+            x="30"
+            y="180"
+            width="120"
+            height="60"
+            supportedTypes="RANGED_VALUE,SHORT_TEXT"
+            defaultProviderComponent="com.ngxyzaudax.radiacode/.complication.BatteryComplicationService" />
+
+        <ComplicationSlot
+            slotId="3"
+            x="300"
+            y="180"
+            width="120"
+            height="60"
+            supportedTypes="RANGED_VALUE,SHORT_TEXT"
+            defaultProviderComponent="com.ngxyzaudax.radiacode/.complication.TemperatureComplicationService" />
+
+        <ComplicationSlot
+            slotId="4"
+            x="30"
+            y="300"
+            width="120"
+            height="60"
+            supportedTypes="RANGED_VALUE,SHORT_TEXT"
+            defaultProviderComponent="com.ngxyzaudax.radiacode/.complication.SignalComplicationService" />
+
+        <ComplicationSlot
+            slotId="5"
+            x="300"
+            y="300"
+            width="120"
+            height="60"
+            supportedTypes="WEIGHTED_ELEMENTS,SHORT_TEXT"
+            defaultProviderComponent="com.ngxyzaudax.radiacode/.complication.DoseHistoryComplicationService" />
+
+        <ComplicationSlot
+            slotId="6"
+            x="170"
+            y="120"
+            width="110"
+            height="50"
+            supportedTypes="SHORT_TEXT"
+            defaultProviderComponent="com.ngxyzaudax.radiacode/.complication.AccumulatedDoseComplicationService" />
+
+        <ComplicationSlot
+            slotId="7"
+            x="170"
+            y="380"
+            width="110"
+            height="50"
+            supportedTypes="SHORT_TEXT"
+            defaultProviderComponent="com.ngxyzaudax.radiacode/.complication.TrackingComplicationService" />
+    </Scene>
+</WatchFace>

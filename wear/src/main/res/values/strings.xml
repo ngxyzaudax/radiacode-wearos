@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RadiaCode</string>
+    <string name="not_connected">Not connected</string>
+    <string name="complication_dose_label">Dose rate</string>
+    <string name="complication_count_label">Count rate</string>
+    <string name="complication_accum_label">Accumulated dose</string>
+    <string name="complication_track_label">Tracking</string>
+    <string name="complication_battery_label">Battery</string>
+    <string name="complication_temp_label">Temperature</string>
+    <string name="complication_signal_label">Signal</string>
+    <string name="complication_history_label">Dose history</string>
+    <string name="complication_dose_graph_label">Dose graph</string>
+    <string name="complication_count_graph_label">Count graph</string>
+    <string name="tile_rates_label">Rates</string>
+    <string name="tile_dose_label">Dose rate</string>
+    <string name="tile_count_label">Count rate</string>
+    <string name="tile_status_label">Status</string>
+    <string name="tile_track_label">Track</string>
+    <string name="tile_accum_label">Accum dose</string>
+</resources>
